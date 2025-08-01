@@ -367,8 +367,11 @@ figure {
     }
 }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner .desc {
-    background: rgba(255, 255, 255, 0.9);
+    background: #000;
     padding: 40px;
+}
+#fh5co-hero .flexslider .slider-text > .slider-text-inner .desc h2 {
+    color: #fff;
 }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner .desc .price {
     font-size: 14px;
@@ -1563,8 +1566,8 @@ figure {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-    background: #d8cb98 !important;
-    border-color: #d8cb98 !important;
+    background: #e683a9ff !important;
+    border-color: #e683a9ff !important;
 }
 .btn-primary.btn-outline {
     background: transparent;
