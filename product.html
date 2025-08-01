@@ -42,258 +42,238 @@
             <script src="js/respond.min.js"></script>
         <![endif]-->
         <style>
-            /* Container and Grid */
-            .container {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-
-            .row {
-                display: flex;
-                flex-wrap: wrap;
-                margin-left: -15px;
-                margin-right: -15px;
-                justify-content: center;
-            }
-
-            .col-md-6 {
-                padding-left: 15px;
-                padding-right: 15px;
-                box-sizing: border-box;
-                flex: 0 0 50%;
-                max-width: 50%;
-            }
-
-            .col-md-8 {
-                flex: 0 0 66.6667%;
-                max-width: 66.6667%;
-                padding-left: 15px;
-                padding-right: 15px;
+            /* Basic Reset & Setup */
+            * {
                 box-sizing: border-box;
             }
 
-            .col-md-offset-2 {
-                margin-left: 16.6667%;
+            /* Header Section */
+            #fh5co-product .header-wrapper {
+                text-align: left;
+                max-width: 700px;
+                margin-bottom: 40px;
+                border-left: 5px solid #ff6f61;
+                padding-left: 15px;
             }
 
-            .text-center {
-                text-align: center;
-            }
-
-            /* Headings */
-            .fh5co-heading span {
-                display: block;
-                font-size: 16px;
-                font-weight: 600;
-                color: #0077cc;
-                margin-bottom: 8px;
-                letter-spacing: 1.2px;
-            }
-
-            .fh5co-heading h2 {
-                font-size: 32px;
+            #fh5co-product .header-wrapper span {
                 font-weight: 700;
-                margin-bottom: 15px;
-                color: #222;
+                color: #ff6f61;
+                letter-spacing: 3px;
+                font-size: 12px;
+                display: block;
+                margin-bottom: 6px;
             }
 
-            .fh5co-heading p {
-                font-size: 15px;
-                color: #555;
-                line-height: 1.6;
-                max-width: 600px;
-                margin-left: auto;
-                margin-right: auto;
+            #fh5co-product .header-wrapper h2 {
+                font-size: 36px;
+                margin: 0 0 10px 0;
+                font-weight: 900;
+                text-transform: uppercase;
             }
 
-            /* Product Cards */
+            #fh5co-product .header-wrapper p {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #666;
+                font-style: italic;
+            }
+
+            /* Products Grid */
+            #fh5co-product .products-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 30px;
+            }
+
+            /* Individual Product Card */
             .product {
-                border: 1px solid #ddd;
-                border-radius: 8px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 8px 16px rgb(255 111 97 / 0.15);
                 overflow: hidden;
-                background-color: #fff;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-                transition: box-shadow 0.3s ease;
                 display: flex;
                 flex-direction: column;
-                height: 100%;
+                transition: transform 0.3s ease;
+                cursor: pointer;
             }
 
             .product:hover {
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+                transform: translateY(-10px);
             }
 
             .product img {
                 width: 100%;
-                height: 300px;
+                height: 260px;
                 object-fit: cover;
-                border-bottom: 1px solid #eee;
+                border-bottom: 3px solid #ff6f61;
             }
 
-            .product-grid {
-                background-color: #f9f9f9;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .product-grid .inner p {
-                margin: 0;
-            }
-
-            .product-grid .icon {
-                margin: 0 12px;
-                font-size: 20px;
-                color: #0077cc;
-                cursor: pointer;
-                transition: color 0.3s ease;
-            }
-
-            .product-grid .icon:hover {
-                color: #004a85;
-            }
-
-            .desc {
-                padding: 15px 20px;
+            .product-info {
+                padding: 20px 25px;
                 flex-grow: 1;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
             }
 
-            .desc h3 {
+            .product-info h3 {
                 font-size: 20px;
-                margin-bottom: 8px;
-                font-weight: 700;
-                color: #222;
+                font-weight: 800;
+                margin: 0 0 12px 0;
+                color: #333;
             }
 
-            .desc h3 a {
-                color: #222;
-                text-decoration: none;
-            }
-
-            .desc h3 a:hover {
-                color: #0077cc;
-                text-decoration: underline;
-            }
-
-            .desc p.small {
+            .product-info p {
+                flex-grow: 1;
                 font-size: 14px;
                 color: #777;
-                margin-bottom: 15px;
-                flex-grow: 1;
+                margin-bottom: 20px;
+                line-height: 1.4;
             }
 
-            .desc .price {
-                font-size: 18px;
-                font-weight: 700;
-                color: #0077cc;
+            .product-price {
+                font-weight: 900;
+                font-size: 22px;
+                color: #ff6f61;
             }
 
-            .desc .text-muted {
+            .product-price del {
+                font-weight: 400;
+                color: #bbb;
                 font-size: 14px;
-                color: #999;
                 margin-left: 10px;
+            }
+
+            /* Action Buttons */
+            .product-actions {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                padding: 15px 0;
+                background: #fff5f3;
+            }
+
+            .product-actions button {
+                background: #ff6f61;
+                border: none;
+                color: white;
+                padding: 10px 18px;
+                font-weight: 700;
+                font-size: 14px;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .product-actions button:hover {
+                background: #d95749;
+            }
+
+            .product-actions .favorite {
+                background: transparent;
+                color: #ff6f61;
+                font-size: 22px;
+                padding: 8px 14px;
+                border-radius: 50%;
+                border: 2px solid #ff6f61;
+            }
+
+            .product-actions .favorite:hover {
+                background: #ff6f61;
+                color: white;
             }
 
             /* Newsletter Section */
             #fh5co-started {
-                background-color: #0077cc;
-                color: #fff;
-                padding: 40px 20px;
-                border-radius: 8px;
-                margin-top: 60px;
+                margin-top: 80px;
+                background: #333;
+                border-radius: 12px;
+                color: white;
+                padding: 60px 40px;
                 text-align: center;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             }
 
             #fh5co-started h2 {
-                font-size: 28px;
-                margin-bottom: 12px;
-                font-weight: 700;
+                font-size: 36px;
+                font-weight: 900;
+                margin-bottom: 15px;
+                text-transform: uppercase;
             }
 
             #fh5co-started p {
-                font-size: 16px;
+                font-style: italic;
+                font-size: 18px;
+                margin-bottom: 40px;
                 max-width: 600px;
-                margin: 0 auto 30px auto;
-                line-height: 1.5;
+                margin-left: auto;
+                margin-right: auto;
+                color: #ddd;
             }
 
-            /* Newsletter Form */
-            .form-inline {
+            #fh5co-started form {
                 display: flex;
                 justify-content: center;
+                gap: 20px;
                 flex-wrap: wrap;
-                gap: 15px;
             }
 
-            .form-inline .form-group {
-                flex: 1 1 300px;
-                max-width: 400px;
-            }
-
-            .form-inline .form-control {
-                width: 100%;
-                padding: 12px 15px;
-                font-size: 15px;
-                border-radius: 6px;
+            #fh5co-started input[type="email"] {
+                width: 300px;
+                padding: 15px 20px;
+                border-radius: 50px;
                 border: none;
+                font-size: 16px;
                 outline: none;
+                transition: box-shadow 0.3s ease;
             }
 
-            .form-inline .btn {
-                background-color: #004a85;
-                color: #fff;
+            #fh5co-started input[type="email"]:focus {
+                box-shadow: 0 0 10px #ff6f61;
+            }
+
+            #fh5co-started button {
+                background: #ff6f61;
                 border: none;
-                padding: 13px 30px;
+                color: white;
                 font-weight: 700;
-                border-radius: 6px;
+                padding: 15px 45px;
+                border-radius: 50px;
+                font-size: 16px;
                 cursor: pointer;
+                text-transform: uppercase;
                 transition: background-color 0.3s ease;
-                flex: 0 0 150px;
             }
 
-            .form-inline .btn:hover {
-                background-color: #002f4d;
-            }
-
-            /* Accessibility */
-            .sr-only {
-                position: absolute !important;
-                width: 1px !important;
-                height: 1px !important;
-                padding: 0 !important;
-                margin: -1px !important;
-                overflow: hidden !important;
-                clip: rect(0, 0, 0, 0) !important;
-                border: 0 !important;
+            #fh5co-started button:hover {
+                background: #d95749;
             }
 
             /* Responsive */
-            @media (max-width: 768px) {
-                .col-md-6 {
-                    flex: 0 0 100%;
-                    max-width: 100%;
-                }
-
-                #fh5co-started {
-                    padding: 30px 15px;
-                }
-
-                .form-inline {
-                    flex-direction: column;
-                }
-
-                .form-inline .btn {
-                    width: 100%;
-                    flex: none;
+            @media (max-width: 700px) {
+                .product-info h3 {
+                    font-size: 18px;
                 }
 
                 .product img {
-                    height: 220px;
+                    height: 200px;
+                }
+
+                #fh5co-started input[type="email"] {
+                    width: 100%;
+                    max-width: 100%;
+                }
+
+                #fh5co-started form {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+
+                #fh5co-product .header-wrapper {
+                    border-left: none;
+                    padding-left: 0;
+                    text-align: center;
+                    max-width: 100%;
                 }
             }
         </style>
